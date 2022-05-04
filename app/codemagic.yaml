@@ -1,0 +1,22 @@
+# You can get more information regarding the YAML file here:
+# https://docs.codemagic.io/getting-started/yaml/
+
+# Workflow setup for building Native Android project
+workflows:
+  my-workflow:
+    scripts:
+      - name: Build Android APK
+        working_directory: android
+        script: ./gradlew assembleRelease
+    artifacts:
+      - app/build/outputs/**/**/*.apk
+    cache:
+      cache_paths:
+        - $HOME/.gradle/caches
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: develop
+          include: false
+      cancel_previous_builds: true
