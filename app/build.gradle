@@ -150,4 +150,8 @@ dependencies {
     // Using Dagger in androidTest and Robolectric too
     kaptTest "com.google.dagger:dagger-compiler:$daggerVersion"
     kaptAndroidTest "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    // JAX-B dependencies for JDK 9+
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
 }
